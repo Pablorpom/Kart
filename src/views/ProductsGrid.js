@@ -1,18 +1,20 @@
 import ProductView from './Product'
 
 export default class ProductsGrid{
-    constructor(node, productsData){
+    constructor({ node, productsData, buttonAction }){
         this.node = node;
         this.productsData = productsData;
+        this.buttonAction = buttonAction
     }
     render(){
-        this.node.innerHTML = this.productsData.reduce(
-            (completedHtml, product) => {
-                const productView = new ProductView(product)
-                completedHtml += productView.createHTML();
-                return completedHtml;
+        this.node.append(this.productsData.reduce(
+            (node, product) => {
+                const productView = new ProductView(product);
+                const options = { buttonAction: this.buttonAction };
+                node.append(productView.createDomElement(options));
+                return node;
             },
-            ''
-        );
+            document.createElement('div')  
+        ));
     }
 }

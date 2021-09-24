@@ -1,11 +1,11 @@
-div{
+.product{
     border: 5px solid black;
     margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;    
     align-items: center;
-    width: 500px;
+    width: 800px;
 }
 button{
     margin: 10px;
@@ -14,4 +14,13 @@ button{
 img{
     max-width: 200px;
     max-height: 200px;
+}
+
+.items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.kart-items{
+    display: flex;
 }
