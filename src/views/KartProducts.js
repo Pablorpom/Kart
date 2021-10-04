@@ -4,10 +4,16 @@ export default class KartProducts{
         this.attachEvents(buttonAction);
     }
     render(kart){
-        this.node.innerHTML = kart.map((id) => `
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });
+        // From a product array it crates a string and render it in the selected node
+        this.node.innerHTML = kart.map(({id, name, price, photos}) => `
             <div data-product-id="${id}">
-                <h3>${id}</h3>
-                <h4>${id}</h4>
+                <h3>${name}</h3>
+                <h4>${formatter.format(price)}</h4>
+                <img src="${photos[0]}" alt="${name}">
                 <button class="remove-button">Remove</button>
             </div>
         `).join('')

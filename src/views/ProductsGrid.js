@@ -9,6 +9,7 @@ export default class ProductsGrid{
     render(){
         this.node.append(this.productsData.reduce(
             (node, product) => {
+                // Render all the element in the items grid from the data of the JSON
                 const productView = new ProductView(product);
                 const options = { buttonAction: this.buttonAction };
                 node.append(productView.createDomElement(options));

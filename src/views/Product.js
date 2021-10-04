@@ -29,6 +29,7 @@ export default class Product{
         return htmlString;
     }
     createDomElement({ buttonAction }){
+        // Create a DOM element with the HTML string created in createHTML() and get the button so a event listener can be added from the outside
         const div = document.createElement('div');
         div.innerHTML = this.createHTML().trim();
         const button = div.querySelector('.add-button');

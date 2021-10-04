@@ -20,11 +20,13 @@ import KartProducts from './views/KartProducts';
                 if(event.target.nodeName === 'BUTTON'){
                     const itemId = event.target.parentElement.dataset.productId;
                     kart.removeItem(itemId);
-                    kartProducts.render(kart.getAllItems())
+                    // Render all the products in the local storage that is the kart, model get all the data of the product and kart get al the ids from the local storage
+                    kartProducts.render(model.getAllByIds(kart.getAllItems()))
                 }
             }
         }
     );
+    kartProducts.render(model.getAllByIds(kart.getAllItems()))
     const productsGrid = new ProductsGrid(
         {
             node: document.querySelector('.items'), 
@@ -32,9 +34,11 @@ import KartProducts from './views/KartProducts';
             buttonAction: (event) => {
                 const itemId = event.target.parentElement.dataset.productId
                 kart.addItem(itemId);
-                kartProducts.render(kart.getAllItems())
+                    // Render all the products in the local storage that is the kart, model get all the data of the product and kart get al the ids from the local storage
+                kartProducts.render(model.getAllByIds(kart.getAllItems()))
             }
         }
     );
+    // Render the products grid
     productsGrid.render();
 })();
