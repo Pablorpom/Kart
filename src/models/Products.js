@@ -1,5 +1,5 @@
 export default class Products{
-    constructor(data){
+    constructor(data = {products:[]}){
         // Storage the data from a JSON with a products key
         this.data = data.products
     }
