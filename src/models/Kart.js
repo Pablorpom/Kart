@@ -27,7 +27,6 @@ export default class Kart {
     }
     persistItems(){
         // Get all the items inside this.items array and put it in the local storage
-        console.log('peristing items');
         localStorage.setItem('kart', JSON.stringify(this.getAllItems()))
     }
 }
